@@ -51,7 +51,7 @@ script = ExtResource("1_4flbx")
 sprite_frames = SubResource("SpriteFrames_onrkg")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.194624
+frame_progress = 0.6007385
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
