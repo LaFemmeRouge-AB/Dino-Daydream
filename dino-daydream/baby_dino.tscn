@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7wac43jo58eo"]
+[gd_scene load_steps=13 format=3 uid="uid://b7wac43jo58eo"]
 
 [ext_resource type="Texture2D" uid="uid://dowahs6635pg" path="res://dinosaurs_ [Version 1.1]/Sprite-Sheets/Characters/Platformer/Utahraptor.png" id="1_uv031"]
+[ext_resource type="Script" uid="uid://jbi681ooip80" path="res://baby_dino.gd" id="2_cdhjq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cdhjq"]
 atlas = ExtResource("1_uv031")
@@ -67,13 +68,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0iuh"]
-radius = 4.0
-height = 12.0
+radius = 3.0
+height = 6.0
 
 [node name="BabyDino" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_tuhnh")
 autoplay = "default"
-frame_progress = 0.863497
+frame_progress = 0.576955
+script = ExtResource("2_cdhjq")
 
 [node name="Area2D" type="Area2D" parent="."]
 

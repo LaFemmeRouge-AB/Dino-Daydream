@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3bsawxps6i7u"]
+[gd_scene load_steps=6 format=3 uid="uid://b3bsawxps6i7u"]
 
 [ext_resource type="Texture2D" uid="uid://du8gnn48cychr" path="res://kenney_platformer-art-pixel-redux/Tilemap/tilemap_packed.png" id="1_wbfu4"]
 [ext_resource type="PackedScene" uid="uid://0tpi0y87m81t" path="res://player.tscn" id="2_xkndl"]
+[ext_resource type="PackedScene" uid="uid://b7wac43jo58eo" path="res://baby_dino.tscn" id="3_u44n3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkndl"]
 texture = ExtResource("1_wbfu4")
@@ -1614,4 +1615,8 @@ tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 1, 0, 1, 0, 4, 0, 0, 0, 0,
 tile_set = SubResource("TileSet_6ubv3")
 
 [node name="Player" parent="." instance=ExtResource("2_xkndl")]
-position = Vector2(-1, -11)
+position = Vector2(3, -20)
+
+[node name="BabyDino" parent="." instance=ExtResource("3_u44n3")]
+position = Vector2(-10, -11)
+frame_progress = 0.186206
