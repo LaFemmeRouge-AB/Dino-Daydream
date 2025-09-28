@@ -7,6 +7,7 @@ var BabyDinoX = self.position.x
 var BabyDinoY = self.position.y
 @export var offsetDinoX = -15
 @export var offsetDinoY = 10
+var BabyDino = preload("res://baby_dino.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,3 +23,7 @@ func _process(delta: float) -> void:
 	BabyDinoY = player.position.y + offsetDinoY
 	
 	self.position = Vector2(BabyDinoX,BabyDinoY)
+
+
+func _on_button_pressed() -> void:
+	pass

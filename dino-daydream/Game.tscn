@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3bsawxps6i7u"]
+[gd_scene load_steps=7 format=3 uid="uid://b3bsawxps6i7u"]
 
 [ext_resource type="Texture2D" uid="uid://du8gnn48cychr" path="res://kenney_platformer-art-pixel-redux/Tilemap/tilemap_packed.png" id="1_wbfu4"]
 [ext_resource type="PackedScene" uid="uid://0tpi0y87m81t" path="res://player.tscn" id="2_xkndl"]
 [ext_resource type="PackedScene" uid="uid://b7wac43jo58eo" path="res://baby_dino.tscn" id="3_u44n3"]
+[ext_resource type="Script" uid="uid://jjurd6h5tx85" path="res://button.gd" id="4_sb48q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkndl"]
 texture = ExtResource("1_wbfu4")
@@ -1623,5 +1624,15 @@ scale = Vector2(0.5, 0.5)
 zoom = Vector2(5, 5)
 
 [node name="BabyDino" parent="." instance=ExtResource("3_u44n3")]
-position = Vector2(12, -21)
-scale = Vector2(2, 2)
+position = Vector2(-3, -11)
+scale = Vector2(1, 1)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 51.0
+offset_top = -71.0
+offset_right = 122.0
+offset_bottom = -40.0
+text = "1 + Dino"
+script = ExtResource("4_sb48q")
+
+[connection signal="pressed" from="Button" to="BabyDino" method="_on_button_pressed"]
