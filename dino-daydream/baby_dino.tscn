@@ -74,7 +74,7 @@ height = 6.0
 [node name="BabyDino" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_tuhnh")
 autoplay = "default"
-frame_progress = 0.576955
+frame = 5
 script = ExtResource("2_cdhjq")
 
 [node name="Area2D" type="Area2D" parent="."]
