@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://0tpi0y87m81t"]
+
+[node name="Player" type="AnimatedSprite2D"]
