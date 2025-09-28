@@ -30,3 +30,11 @@ func _on_button_pressed() -> void:
 func _process(delta: float) -> void:
 	if player:
 		position = player.position + Vector2(-my_offset_x, offsetDinoY)
+
+
+func _on_crystal_body_entered(body: Node2D) -> void:
+	var dino = BabyDinoScene.instantiate()
+	dino.my_offset_x = DistanceBabyDino * babyDinoCount
+	get_parent().add_child(dino)
+
+	babyDinoCount += 1
