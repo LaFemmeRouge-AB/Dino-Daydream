@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://vikhpim03bk2"]
+
+[ext_resource type="Texture2D" uid="uid://c82wyhhq4pah1" path="res://dinosaurs_ [Version 1.1]/Sprite-Sheets/Characters/Platformer/Tyrannosaurus Rex.png" id="1_egw5l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc2j1"]
+atlas = ExtResource("1_egw5l")
+region = Rect2(0, 216, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hemg0"]
+atlas = ExtResource("1_egw5l")
+region = Rect2(48, 216, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxy5d"]
+atlas = ExtResource("1_egw5l")
+region = Rect2(72, 216, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eleie"]
+atlas = ExtResource("1_egw5l")
+region = Rect2(24, 216, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6b58"]
+atlas = ExtResource("1_egw5l")
+region = Rect2(72, 192, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to5yh"]
+atlas = ExtResource("1_egw5l")
+region = Rect2(72, 168, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bs2l"]
+atlas = ExtResource("1_egw5l")
+region = Rect2(0, 192, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71707"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc2j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hemg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxy5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eleie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6b58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to5yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bs2l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt8cd"]
+radius = 3.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_71707")
+autoplay = "default"
+frame_progress = 0.24653353
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_vt8cd")
