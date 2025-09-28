@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3bsawxps6i7u"]
+[gd_scene load_steps=11 format=4 uid="uid://b3bsawxps6i7u"]
 
 [ext_resource type="Texture2D" uid="uid://du8gnn48cychr" path="res://kenney_platformer-art-pixel-redux/Tilemap/tilemap_packed.png" id="1_wbfu4"]
 [ext_resource type="PackedScene" uid="uid://0tpi0y87m81t" path="res://player.tscn" id="2_xkndl"]
 [ext_resource type="PackedScene" uid="uid://b7wac43jo58eo" path="res://baby_dino.tscn" id="3_u44n3"]
+[ext_resource type="Texture2D" uid="uid://duoep4ie8hdws" path="res://Ocean_1/1.png" id="4_sb48q"]
+[ext_resource type="Texture2D" uid="uid://byei4higk6t6y" path="res://Ocean_1/4.png" id="5_t88pq"]
+[ext_resource type="Script" uid="uid://b2ggtjbvuunyq" path="res://death.gd" id="6_r0x5m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkndl"]
 texture = ExtResource("1_wbfu4")
@@ -1608,11 +1611,17 @@ texture_region_size = Vector2i(21, 21)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_xkndl")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0x5m"]
+size = Vector2(827.8335, 8.916668)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mrqo"]
+size = Vector2(21, 20)
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(1, 0)
-tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 1, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 4, 0, 0, 0, 2, 0, 0, 0, 1, 0, 1, 0, 4, 0, 0, 0)
+tile_map_data = PackedByteArray("AAD//wAAAQABAAQAAAAAAAAAAQABAAQAAAABAAAAAQABAAQAAAACAAAAAQABAAQAAAD+/wAAAQAFAAQAAAADAAAAAQAFAAUAAAA=")
 tile_set = SubResource("TileSet_6ubv3")
 
 [node name="Player" parent="." instance=ExtResource("2_xkndl")]
@@ -1626,3 +1635,36 @@ zoom = Vector2(5, 5)
 [node name="BabyDino" parent="." instance=ExtResource("3_u44n3")]
 position = Vector2(12, -21)
 scale = Vector2(2, 2)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+offset_left = -1247.0
+offset_top = -186.0
+offset_right = 4743.0
+offset_bottom = 487.0
+texture = ExtResource("4_sb48q")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -1241.0
+offset_top = -1497.0
+offset_right = 4874.0
+offset_bottom = -157.0
+texture = ExtResource("5_t88pq")
+
+[node name="Death" type="Area2D" parent="."]
+position = Vector2(7, 536)
+scale = Vector2(6, 6)
+script = ExtResource("6_r0x5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death"]
+position = Vector2(206.66667, -30.16667)
+shape = SubResource("RectangleShape2D_r0x5m")
+
+[node name="Begin checkpoint" type="Area2D" parent="."]
+position = Vector2(-5, -27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Begin checkpoint"]
+position = Vector2(12, 10)
+shape = SubResource("RectangleShape2D_3mrqo")
+
+[connection signal="body_shape_entered" from="Death" to="Death" method="_on_body_shape_entered"]
