@@ -31,10 +31,17 @@ func _process(delta: float) -> void:
 	if player:
 		position = player.position + Vector2(-my_offset_x, offsetDinoY)
 
-
+var crystal_touched = 0
 func _on_crystal_body_entered(body: Node2D) -> void:
-	var dino = BabyDinoScene.instantiate()
-	dino.my_offset_x = DistanceBabyDino * babyDinoCount
-	get_parent().add_child(dino)
-
-	babyDinoCount += 1
+	
+	
+	
+	if crystal_touched < 1:
+		var dino = BabyDinoScene.instantiate()
+		dino.my_offset_x = DistanceBabyDino * babyDinoCount
+		get_parent().add_child(dino)
+		crystal_touched += 1
+		babyDinoCount += 1
+		$"../crystal".hide()
+		$"../DinoBabyNames".show()
+		

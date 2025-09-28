@@ -27,21 +27,21 @@ zoom = Vector2(0.5, 0.5)
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.25300002
-anchor_bottom = 0.34100002
+anchor_right = 0.253
+anchor_bottom = 0.341
 offset_left = -128.0
 offset_top = -40.0
 offset_right = 1885.05
-offset_bottom = 1035.7139
+offset_bottom = 1035.71
 texture = ExtResource("1_e5ftv")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 50.0
-offset_top = 959.00006
+offset_top = 959.0
 offset_right = 215.0
-offset_bottom = 982.00006
-scale = Vector2(13.30439, 13.806072)
+offset_bottom = 982.0
+scale = Vector2(13.3044, 13.8061)
 text = "DINOSAUR RAWR"
 label_settings = SubResource("LabelSettings_yb3lb")
 

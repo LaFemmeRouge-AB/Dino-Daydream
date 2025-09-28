@@ -4,61 +4,9 @@
 [ext_resource type="Script" uid="uid://dgw5kkp62rb01" path="res://animation_player.gd" id="1_clmyk"]
 [ext_resource type="Texture2D" uid="uid://duoep4ie8hdws" path="res://Ocean_1/1.png" id="2_khti1"]
 [ext_resource type="Texture2D" uid="uid://byei4higk6t6y" path="res://Ocean_1/4.png" id="3_clmyk"]
-[ext_resource type="PackedScene" uid="uid://vikhpim03bk2" path="res://AnimatePlayer.tscn" id="4_lpccl"]
-[ext_resource type="PackedScene" uid="uid://bm2jb4n88gglr" path="res://GuideNPC.tscn" id="5_khti1"]
+[ext_resource type="PackedScene" path="res://AnimatePlayer.tscn" id="4_lpccl"]
+[ext_resource type="PackedScene" path="res://GuideNPC.tscn" id="5_khti1"]
 [ext_resource type="Texture2D" uid="uid://dt280vf3irtvn" path="res://Title Screen/Unknown.jpeg" id="7_lpccl"]
-
-[sub_resource type="Animation" id="Animation_sitmc"]
-resource_name = "fall"
-length = 1.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/CharacterBody2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.18, 1.31, 1.35, 1.52),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 6.2831855, 1.1833333, 1.5725417]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/CharacterBody2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.22, 0.41, 0.61, 0.83, 0.98, 1.07, 1.2, 1.35, 1.52),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(29, -1070), Vector2(21, -949), Vector2(15, -817), Vector2(3, -660), Vector2(1, -524), Vector2(1, -355), Vector2(-1, -225), Vector2(-1, -145), Vector2(4, -85), Vector2(7, -11.999999)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer/Camera2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.13, 0.33, 0.77, 1.09, 1.29),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(25, -1066), Vector2(25, -984), Vector2(19, -862), Vector2(0, -550), Vector2(-1, -210), Vector2(5, -29)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer/TextureRect3:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1.6, 1.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_epmq6"]
 length = 0.001
@@ -109,6 +57,58 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sitmc"]
+resource_name = "fall"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/CharacterBody2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.18, 1.31, 1.35, 1.52),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 1.18333, 1.57254]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/CharacterBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.41, 0.61, 0.83, 0.98, 1.07, 1.2, 1.35, 1.52),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(29, -1070), Vector2(21, -949), Vector2(15, -817), Vector2(3, -660), Vector2(1, -524), Vector2(1, -355), Vector2(-1, -225), Vector2(-1, -145), Vector2(4, -85), Vector2(7, -12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.33, 0.77, 1.09, 1.29),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(25, -1066), Vector2(25, -984), Vector2(19, -862), Vector2(0, -550), Vector2(-1, -210), Vector2(5, -29)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/TextureRect3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f4ogk"]
@@ -3347,12 +3347,12 @@ tile_set = SubResource("TileSet_824na")
 show_behind_parent = true
 z_index = -3
 anchors_preset = -1
-anchor_left = -0.046000004
-anchor_right = 0.083000004
-anchor_bottom = 0.022000002
-offset_left = -1206.008
+anchor_left = -0.046
+anchor_right = 0.083
+anchor_bottom = 0.022
+offset_left = -1206.01
 offset_top = -168.0
-offset_right = 4635.384
+offset_right = 4635.38
 offset_bottom = 490.744
 texture = ExtResource("2_khti1")
 metadata/_edit_use_anchors_ = true
@@ -3375,7 +3375,7 @@ zoom = Vector2(5, 5)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_lpccl")]
 position = Vector2(7, -12)
-rotation = 1.5725417
+rotation = 1.57254
 scale = Vector2(2, 2)
 
 [node name="Guide" parent="." instance=ExtResource("5_khti1")]

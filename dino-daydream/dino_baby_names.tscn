@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxnrdgur2bfal"]
+
+[ext_resource type="Script" uid="uid://d086httjuxmym" path="res://dino_baby_names.gd" id="1_eh5fu"]
+[ext_resource type="FontFile" uid="uid://duyvgts6fi0ne" path="res://Title Screen/bitByBit_ [Font] [Version 1.1]/bitbybit_ [Font].ttf" id="2_hccos"]
+
+[node name="DinoBabyNames" type="Node2D"]
+script = ExtResource("1_eh5fu")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_right = 130.0
+offset_bottom = 12.0
+theme_override_colors/clear_button_color_pressed = Color(0.795059, 0.844161, 0.953175, 1)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_hccos")
+theme_override_font_sizes/font_size = 10
+
+[node name="Label" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 25.0
+offset_right = 174.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_hccos")
+theme_override_font_sizes/font_size = 5
+text = "Your Dino Baby Name"

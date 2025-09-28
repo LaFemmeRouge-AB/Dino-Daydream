@@ -1,12 +1,15 @@
-[gd_scene load_steps=15 format=4 uid="uid://b3bsawxps6i7u"]
+[gd_scene load_steps=18 format=4 uid="uid://b3bsawxps6i7u"]
 
 [ext_resource type="Texture2D" uid="uid://du8gnn48cychr" path="res://kenney_platformer-art-pixel-redux/Tilemap/tilemap_packed.png" id="1_wbfu4"]
 [ext_resource type="PackedScene" uid="uid://dn252t0fb1hwu" path="res://player.tscn" id="2_xkndl"]
 [ext_resource type="PackedScene" uid="uid://b7wac43jo58eo" path="res://baby_dino.tscn" id="3_u44n3"]
 [ext_resource type="Texture2D" uid="uid://duoep4ie8hdws" path="res://Ocean_1/1.png" id="4_sb48q"]
 [ext_resource type="Texture2D" uid="uid://byei4higk6t6y" path="res://Ocean_1/4.png" id="5_t88pq"]
-[ext_resource type="Script" uid="uid://b2ggtjbvuunyq" path="res://death.gd" id="6_r0x5m"]
+[ext_resource type="Script" path="res://death.gd" id="6_r0x5m"]
 [ext_resource type="Texture2D" uid="uid://dt280vf3irtvn" path="res://Title Screen/Unknown.jpeg" id="7_3mrqo"]
+[ext_resource type="PackedScene" uid="uid://kywtt2dotgbh" path="res://Spring.tscn" id="8_2vekm"]
+[ext_resource type="PackedScene" uid="uid://ddosb64b0a5rt" path="res://crystal.tscn" id="9_yx171"]
+[ext_resource type="PackedScene" uid="uid://cxnrdgur2bfal" path="res://dino_baby_names.tscn" id="10_yx171"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkndl"]
 texture = ExtResource("1_wbfu4")
@@ -1618,21 +1621,6 @@ size = Vector2(827.833, 8.91667)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mrqo"]
 size = Vector2(21, 20)
 
-[sub_resource type="Animation" id="Animation_joorw"]
-resource_name = "fade"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/TextureRect3:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.24),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_2vekm"]
 length = 0.001
 tracks/0/type = "value"
@@ -1646,6 +1634,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_joorw"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/TextureRect3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx171"]
@@ -1706,13 +1709,6 @@ position = Vector2(-5, -27)
 position = Vector2(19, -21)
 shape = SubResource("RectangleShape2D_3mrqo")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 37.0
-offset_top = -66.0
-offset_right = 107.0
-offset_bottom = -35.0
-text = "+1 Child"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_yx171")
@@ -1720,11 +1716,24 @@ libraries = {
 autoplay = "fade"
 
 [node name="TextureRect3" type="TextureRect" parent="AnimationPlayer"]
+visible = false
 offset_left = -457.0
 offset_top = -305.0
 offset_right = 648.0
 offset_bottom = 295.0
 texture = ExtResource("7_3mrqo")
 
+[node name="spring" parent="." instance=ExtResource("8_2vekm")]
+position = Vector2(274, 86)
+
+[node name="crystal" parent="." instance=ExtResource("9_yx171")]
+position = Vector2(234, -21)
+
+[node name="DinoBabyNames" parent="." instance=ExtResource("10_yx171")]
+visible = false
+position = Vector2(184, -67)
+
 [connection signal="body_shape_entered" from="Death" to="Death" method="_on_body_shape_entered"]
-[connection signal="pressed" from="Button" to="BabyDino" method="_on_button_pressed"]
+[connection signal="body_shape_entered" from="spring" to="Player" method="_on_spring_body_shape_entered"]
+[connection signal="body_entered" from="crystal" to="Player" method="_on_crystal_body_entered"]
+[connection signal="body_entered" from="crystal" to="BabyDino" method="_on_crystal_body_entered"]
