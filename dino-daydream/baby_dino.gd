@@ -1,29 +1,32 @@
 extends AnimatedSprite2D
 
-@onready var baby_dino: AnimatedSprite2D = $"."
 @onready var player: CharacterBody2D = $"../Player"
 
-var BabyDinoX = self.position.x
-var BabyDinoY = self.position.y
-@export var offsetDinoX = -15
-@export var offsetDinoY = 10
-var BabyDino = preload("res://baby_dino.tscn")
+@export var offsetDinoY: int = 10
+@export var DistanceBabyDino: int = 5
 
+var BabyDinoScene = preload("res://baby_dino.tscn")
 
-# Called when the node enters the scene tree for the first time.
+# Each dino has its own offset
+var my_offset_x: int = 0
+
+# This static counter is only used by the *scene* that spawns babies
+static var babyDinoCount: int = 0
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	
-	
-	BabyDinoX = player.position.x + offsetDinoX
-	BabyDinoY = player.position.y + offsetDinoY
-	
-	self.position = Vector2(BabyDinoX,BabyDinoY)
-
+	# If this is the first dino in the scene
+	if babyDinoCount == 0:
+		my_offset_x = DistanceBabyDino * 1
+		babyDinoCount = 1
 
 func _on_button_pressed() -> void:
-	pass
+	var dino = BabyDinoScene.instantiate()
+	dino.my_offset_x = DistanceBabyDino * babyDinoCount
+	get_parent().add_child(dino)
+
+	babyDinoCount += 1
+	
+
+func _process(delta: float) -> void:
+	if player:
+		position = player.position + Vector2(-my_offset_x, offsetDinoY)
