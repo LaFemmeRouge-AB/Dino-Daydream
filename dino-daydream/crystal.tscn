@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddosb64b0a5rt"]
+
+[ext_resource type="Script" uid="uid://b8mfxqvw5edlb" path="res://crystal.gd" id="1_200vn"]
+[ext_resource type="Texture2D" uid="uid://4dxquja1obm2" path="res://Icon16.png" id="2_kxb6e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxs1y"]
+
+[node name="crystal" type="Area2D"]
+script = ExtResource("1_200vn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gxs1y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kxb6e")
