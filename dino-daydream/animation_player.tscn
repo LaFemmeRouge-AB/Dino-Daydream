@@ -3303,6 +3303,7 @@ sources/1 = SubResource("TileSetAtlasSource_k0k0e")
 libraries = {
 &"": SubResource("AnimationLibrary_f4ogk")
 }
+autoplay = "fall"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 top_level = true
@@ -3342,14 +3343,13 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(5, -29)
+position = Vector2(25, -1066)
 zoom = Vector2(5, 5)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_lpccl")]
-position = Vector2(7, -12)
-rotation = 1.5725417
+position = Vector2(29, -1070)
 scale = Vector2(2, 2)
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("5_khti1")]
+[node name="Guide" parent="." instance=ExtResource("5_khti1")]
 position = Vector2(39, -22)
 scale = Vector2(2, 2)
