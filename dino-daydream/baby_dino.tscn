@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://b7wac43jo58eo"]
+
+[ext_resource type="Texture2D" uid="uid://dowahs6635pg" path="res://dinosaurs_ [Version 1.1]/Sprite-Sheets/Characters/Platformer/Utahraptor.png" id="1_uv031"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdhjq"]
+atlas = ExtResource("1_uv031")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dsfp"]
+atlas = ExtResource("1_uv031")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8ack"]
+atlas = ExtResource("1_uv031")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7l11"]
+atlas = ExtResource("1_uv031")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oclb0"]
+atlas = ExtResource("1_uv031")
+region = Rect2(96, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siikq"]
+atlas = ExtResource("1_uv031")
+region = Rect2(120, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqcb4"]
+atlas = ExtResource("1_uv031")
+region = Rect2(144, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lon8"]
+atlas = ExtResource("1_uv031")
+region = Rect2(168, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuhnh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdhjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dsfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8ack")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7l11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oclb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siikq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqcb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lon8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0iuh"]
+radius = 4.0
+height = 12.0
+
+[node name="BabyDino" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_tuhnh")
+autoplay = "default"
+frame_progress = 0.863497
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_s0iuh")
