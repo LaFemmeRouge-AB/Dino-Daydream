@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e16cybxiwl2"
-path="res://.godot/imported/backgrounds.png-981b6a0b2554304a50a5a88eb5e943d7.ctex"
+uid="uid://byei4higk6t6y"
+path="res://.godot/imported/4.png-c335015d04bcbe91b5b4377f2f9d733f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kenney_platformer-art-pixel-redux/Backgrounds/backgrounds.png"
-dest_files=["res://.godot/imported/backgrounds.png-981b6a0b2554304a50a5a88eb5e943d7.ctex"]
+source_file="res://Ocean_1/4.png"
+dest_files=["res://.godot/imported/4.png-c335015d04bcbe91b5b4377f2f9d733f.ctex"]
 
 [params]
 
