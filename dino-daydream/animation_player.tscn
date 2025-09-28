@@ -1,14 +1,16 @@
-[gd_scene load_steps=13 format=4 uid="uid://cf2qofuclur53"]
+[gd_scene load_steps=15 format=4 uid="uid://cf2qofuclur53"]
 
 [ext_resource type="Texture2D" uid="uid://du8gnn48cychr" path="res://kenney_platformer-art-pixel-redux/Tilemap/tilemap_packed.png" id="1_1uthr"]
+[ext_resource type="Script" uid="uid://dgw5kkp62rb01" path="res://animation_player.gd" id="1_clmyk"]
 [ext_resource type="Texture2D" uid="uid://duoep4ie8hdws" path="res://Ocean_1/1.png" id="2_khti1"]
 [ext_resource type="Texture2D" uid="uid://byei4higk6t6y" path="res://Ocean_1/4.png" id="3_clmyk"]
 [ext_resource type="PackedScene" uid="uid://vikhpim03bk2" path="res://AnimatePlayer.tscn" id="4_lpccl"]
 [ext_resource type="PackedScene" uid="uid://bm2jb4n88gglr" path="res://GuideNPC.tscn" id="5_khti1"]
+[ext_resource type="Texture2D" uid="uid://dt280vf3irtvn" path="res://Title Screen/Unknown.jpeg" id="7_lpccl"]
 
 [sub_resource type="Animation" id="Animation_sitmc"]
 resource_name = "fall"
-length = 1.7
+length = 1.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,6 +46,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(25, -1066), Vector2(25, -984), Vector2(19, -862), Vector2(0, -550), Vector2(-1, -210), Vector2(5, -29)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/TextureRect3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_epmq6"]
@@ -83,6 +97,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(25, -1066)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/TextureRect3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f4ogk"]
@@ -3304,6 +3330,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_f4ogk")
 }
 autoplay = "fall"
+script = ExtResource("1_clmyk")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 top_level = true
@@ -3343,13 +3370,23 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(25, -1066)
+position = Vector2(5, -29)
 zoom = Vector2(5, 5)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_lpccl")]
-position = Vector2(29, -1070)
+position = Vector2(7, -12)
+rotation = 1.5725417
 scale = Vector2(2, 2)
 
 [node name="Guide" parent="." instance=ExtResource("5_khti1")]
 position = Vector2(39, -22)
 scale = Vector2(2, 2)
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = -419.0
+offset_top = -287.0
+offset_right = 443.0
+offset_bottom = 251.0
+texture = ExtResource("7_lpccl")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
