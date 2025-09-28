@@ -13,9 +13,20 @@ func _process(delta: float) -> void:
 	pass
 
 func on_LineEdit_text_entered(new_text: String) -> void:
-	var entedtimes = 0
-	if entedtimes < 1:
-		entedtimes += 1
-		label.text = "Your Baby Dino Name Is: " + new_text
-		await get_tree().create_timer(1.5).timeout
-		self.hide()
+	label.text = "Your Baby Dino Name Is: " + new_text
+	
+	Game.dino_names.append(new_text)  # store the name in the array
+	print("Now saved:", Game.dino_names)
+
+	await get_tree().create_timer(1.5).timeout
+	self.hide()
+		
+		
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	$DinoListUI.show_dinos()
+
+	for name in Game.dino_names:
+		print(name)
+	
