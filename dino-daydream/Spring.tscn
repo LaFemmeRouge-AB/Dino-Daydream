@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://kywtt2dotgbh"]
+
+[ext_resource type="Script" uid="uid://r4rtwemlarwn" path="res://spring.gd" id="1_3jopu"]
+[ext_resource type="Texture2D" uid="uid://8dtxgillpneb" path="res://spring (1).png" id="1_4rko5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jopu"]
+size = Vector2(16, 5)
+
+[sub_resource type="Animation" id="Animation_4rko5"]
+resource_name = "spring"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_3jopu"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_opj1b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_opj1b"]
+_data = {
+&"RESET": SubResource("Animation_opj1b"),
+&"idle": SubResource("Animation_3jopu"),
+&"spring": SubResource("Animation_4rko5")
+}
+
+[node name="spring" type="Area2D"]
+script = ExtResource("1_3jopu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_3jopu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4rko5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_opj1b")
+}
+autoplay = "idle"
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://b3bsawxps6i7u"]
+[gd_scene load_steps=13 format=4 uid="uid://b3bsawxps6i7u"]
 
 [ext_resource type="Texture2D" uid="uid://du8gnn48cychr" path="res://kenney_platformer-art-pixel-redux/Tilemap/tilemap_packed.png" id="1_wbfu4"]
-[ext_resource type="PackedScene" uid="uid://0tpi0y87m81t" path="res://player.tscn" id="2_xkndl"]
+[ext_resource type="PackedScene" uid="uid://dn252t0fb1hwu" path="res://player.tscn" id="2_xkndl"]
 [ext_resource type="PackedScene" uid="uid://b7wac43jo58eo" path="res://baby_dino.tscn" id="3_u44n3"]
 [ext_resource type="Texture2D" uid="uid://duoep4ie8hdws" path="res://Ocean_1/1.png" id="4_sb48q"]
 [ext_resource type="Texture2D" uid="uid://byei4higk6t6y" path="res://Ocean_1/4.png" id="5_t88pq"]
 [ext_resource type="Script" path="res://death.gd" id="6_r0x5m"]
+[ext_resource type="PackedScene" uid="uid://kywtt2dotgbh" path="res://Spring.tscn" id="7_3mrqo"]
+[ext_resource type="PackedScene" uid="uid://ddosb64b0a5rt" path="res://crystal.tscn" id="8_joorw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkndl"]
 texture = ExtResource("1_wbfu4")
@@ -1621,7 +1623,7 @@ size = Vector2(21, 20)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(1, 0)
-tile_map_data = PackedByteArray("AAD//wAAAQABAAQAAAAAAAAAAQABAAQAAAABAAAAAQABAAQAAAACAAAAAQABAAQAAAD+/wAAAQAFAAQAAAADAAAAAQAFAAUAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAQABAAQAAAAAAAAAAQABAAQAAAABAAAAAQABAAQAAAACAAAAAQABAAQAAAD+/wAAAQAFAAQAAAADAAAAAQAFAAUAAAAFAAAAAQAIAAQAAAAGAAAAAQAJAAQAAAAHAAAAAQAIAAQAAAAIAAAAAQAJAAQAAAAJAAAAAQAIAAUAAAAKAAAAAQAJAAUAAAA=")
 tile_set = SubResource("TileSet_6ubv3")
 
 [node name="Player" parent="." instance=ExtResource("2_xkndl")]
@@ -1676,5 +1678,14 @@ offset_right = 107.0
 offset_bottom = -35.0
 text = "+1 Child"
 
+[node name="spring" parent="." instance=ExtResource("7_3mrqo")]
+position = Vector2(51, -10)
+
+[node name="crystal" parent="." instance=ExtResource("8_joorw")]
+position = Vector2(152, -30)
+
 [connection signal="body_shape_entered" from="Death" to="Death" method="_on_body_shape_entered"]
 [connection signal="pressed" from="Button" to="BabyDino" method="_on_button_pressed"]
+[connection signal="body_shape_entered" from="spring" to="Player" method="_on_spring_body_shape_entered"]
+[connection signal="body_entered" from="crystal" to="Player" method="_on_crystal_body_entered"]
+[connection signal="body_entered" from="crystal" to="BabyDino" method="_on_crystal_body_entered"]
