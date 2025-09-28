@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgbo7nckk7xp8"]
+
+[ext_resource type="Texture2D" uid="uid://byei4higk6t6y" path="res://Ocean_1/4.png" id="1_e5ftv"]
+[ext_resource type="FontFile" uid="uid://duyvgts6fi0ne" path="res://Title Screen/bitByBit_ [Font] [Version 1.1]/bitbybit_ [Font].ttf" id="2_ab0cv"]
+[ext_resource type="Script" uid="uid://jjurd6h5tx85" path="res://button.gd" id="3_dx034"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yb3lb"]
+font = ExtResource("2_ab0cv")
+font_size = 12
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1149, 651)
+zoom = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25300002
+anchor_bottom = 0.34100002
+offset_left = 1.0
+offset_top = 5.0
+offset_right = 2014.05
+offset_bottom = 1080.714
+texture = ExtResource("1_e5ftv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 959.00006
+offset_right = 215.0
+offset_bottom = 982.00006
+scale = Vector2(13.30439, 13.806072)
+text = "DINOSAUR RAWR"
+label_settings = SubResource("LabelSettings_yb3lb")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 597.0
+offset_top = 154.0
+offset_right = 1769.0
+offset_bottom = 443.0
+theme_override_fonts/font = ExtResource("2_ab0cv")
+theme_override_font_sizes/font_size = 126
+text = "START"
+icon_alignment = 1
+text_direction = 3
+script = ExtResource("3_dx034")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
