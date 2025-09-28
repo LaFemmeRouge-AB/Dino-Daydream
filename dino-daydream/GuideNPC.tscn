@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bm2jb4n88gglr"]
+
+[ext_resource type="Texture2D" uid="uid://bhibvfum57m63" path="res://dinosaurs_ [Version 1.1]/Sprite-Sheets/Characters/Platformer/Stegasaurus.png" id="1_nw7gu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iq0v"]
+atlas = ExtResource("1_nw7gu")
+region = Rect2(0, 0, 24, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbmwg"]
+atlas = ExtResource("1_nw7gu")
+region = Rect2(24, 0, 24, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd518"]
+atlas = ExtResource("1_nw7gu")
+region = Rect2(48, 0, 24, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mloar"]
+atlas = ExtResource("1_nw7gu")
+region = Rect2(72, 0, 24, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wavv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iq0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbmwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd518")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mloar")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ycus"]
+radius = 3.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_0wavv")
+autoplay = "default"
+frame_progress = 0.815977
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_7ycus")

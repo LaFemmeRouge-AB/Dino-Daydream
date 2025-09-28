@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://0tpi0y87m81t"]
+[gd_scene load_steps=9 format=3 uid="uid://dn252t0fb1hwu"]
 
 [ext_resource type="Script" uid="uid://c51fglcu5blqi" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://c82wyhhq4pah1" path="res://dinosaurs_ [Version 1.1]/Sprite-Sheets/Characters/Platformer/Tyrannosaurus Rex.png" id="2_onrkg"]

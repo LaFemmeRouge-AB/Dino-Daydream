@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=4 uid="uid://b3bsawxps6i7u"]
 
 [ext_resource type="Texture2D" uid="uid://du8gnn48cychr" path="res://kenney_platformer-art-pixel-redux/Tilemap/tilemap_packed.png" id="1_wbfu4"]
-[ext_resource type="PackedScene" uid="uid://0tpi0y87m81t" path="res://player.tscn" id="2_xkndl"]
+[ext_resource type="PackedScene" uid="uid://dn252t0fb1hwu" path="res://player.tscn" id="2_xkndl"]
 [ext_resource type="PackedScene" uid="uid://b7wac43jo58eo" path="res://baby_dino.tscn" id="3_u44n3"]
 [ext_resource type="Texture2D" uid="uid://duoep4ie8hdws" path="res://Ocean_1/1.png" id="4_sb48q"]
 [ext_resource type="Texture2D" uid="uid://byei4higk6t6y" path="res://Ocean_1/4.png" id="5_t88pq"]
 [ext_resource type="Script" uid="uid://b2ggtjbvuunyq" path="res://death.gd" id="6_r0x5m"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkndl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r0x5m"]
 texture = ExtResource("1_wbfu4")
 texture_region_size = Vector2i(21, 21)
 0:0/0 = 0
@@ -1609,7 +1609,7 @@ texture_region_size = Vector2i(21, 21)
 
 [sub_resource type="TileSet" id="TileSet_6ubv3"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_xkndl")
+sources/1 = SubResource("TileSetAtlasSource_r0x5m")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0x5m"]
 size = Vector2(827.8335, 8.916668)
@@ -1621,7 +1621,7 @@ size = Vector2(21, 20)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(1, 0)
-tile_map_data = PackedByteArray("AAD//wAAAQABAAQAAAAAAAAAAQABAAQAAAABAAAAAQABAAQAAAACAAAAAQABAAQAAAD+/wAAAQAFAAQAAAADAAAAAQAFAAUAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAQABAAQAAAAAAAAAAQABAAQAAAABAAAAAQABAAQAAAACAAAAAQABAAQAAAD+/wAAAQAFAAQAAAADAAAAAQAFAAUAAAAKAP7/AQAIAAQAAAALAP7/AQAIAAQAAAANAP7/AQAIAAQAAAAMAP7/AQAIAAQAAAAOAP7/AQAIAAQAAAAPAP7/AQAIAAQAAAAQAP7/AQAIAAQAAAAMAP3/AQAQAAcAAAAMAPz/AQAQAAcAAAAPAP3/AQAQAAcAAAAMAPv/AQAQAAYAAAAPAPz/AQAQAAYAAAAPAPr/AQAUAAsAAAANAPn/AQAUAAsAAAAKAPj/AQAUAAsAAAAKAAEAAQAIAAQAAAALAAIAAQAIAAQAAAAMAAIAAQAIAAQAAAANAAMAAQAIAAQAAAAOAAMAAQAIAAQAAAAPAAQAAQAIAAQAAAAQAAQAAQAIAAQAAAARAAUAAQAIAAQAAAASAAUAAQAIAAQAAAATAAUAAQAIAAQAAAAUAAUAAQAIAAQAAAAUAAQAAQAIAAQAAAAVAAQAAQAIAAQAAAAWAAQAAQAIAAQAAAAXAAQAAQAIAAQAAAAYAAQAAQAIAAQAAAAZAAMAAQAIAAQAAAAaAAMAAQAIAAQAAAAbAAMAAQAIAAQAAAAcAAMAAQAIAAQAAAAdAAMAAQAIAAQAAAAeAAMAAQAIAAQAAAAJAAEAAQAIAAQAAAAIAAEAAQAIAAQAAAAHAAEAAQAIAAQAAAAGAAEAAQAIAAQAAAA=")
 tile_set = SubResource("TileSet_6ubv3")
 
 [node name="Player" parent="." instance=ExtResource("2_xkndl")]
@@ -1634,22 +1634,28 @@ zoom = Vector2(5, 5)
 
 [node name="BabyDino" parent="." instance=ExtResource("3_u44n3")]
 position = Vector2(12, -21)
-scale = Vector2(2, 2)
+scale = Vector2(1, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true
+z_index = -3
 offset_left = -1247.0
 offset_top = -186.0
 offset_right = 4743.0
 offset_bottom = 487.0
 texture = ExtResource("4_sb48q")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -3
 offset_left = -1241.0
 offset_top = -1497.0
 offset_right = 4874.0
 offset_bottom = -157.0
 texture = ExtResource("5_t88pq")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Death" type="Area2D" parent="."]
 position = Vector2(7, 536)
