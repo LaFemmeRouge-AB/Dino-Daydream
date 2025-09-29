@@ -31,17 +31,36 @@ func _process(delta: float) -> void:
 	if player:
 		position = player.position + Vector2(-my_offset_x, offsetDinoY)
 
-var crystal_touched = 0
+var crystal_touched1 = 0
+var crystal_touched2 = 0
 func _on_crystal_body_entered(body: Node2D) -> void:
 	
 	
 	
-	if crystal_touched < 1:
+	if crystal_touched1 < 1:
+		$"../DinoBabyNames".show()
 		var dino = BabyDinoScene.instantiate()
 		dino.my_offset_x = DistanceBabyDino * babyDinoCount
 		get_parent().add_child(dino)
-		crystal_touched += 1
+		crystal_touched1 += 1
 		babyDinoCount += 1
 		$"../crystal".hide()
 		$"../DinoBabyNames".show()
+	
 		
+
+
+func _on_crystal_2_body_entered(body: Node2D) -> void:
+	$"../DinoBabyNames2".show()
+	if crystal_touched2 < 1:
+		var dino = BabyDinoScene.instantiate()
+		dino.my_offset_x = DistanceBabyDino * babyDinoCount
+		get_parent().add_child(dino)
+		crystal_touched2 += 1
+		babyDinoCount += 1
+		$"../crystal2".hide()
+		$"../DinoBabyNames2".show()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

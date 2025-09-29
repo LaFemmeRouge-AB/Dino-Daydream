@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://duyvgts6fi0ne"
-path="res://.godot/imported/bitbybit_ [Font].ttf-07912b4744dc17396f6776ecb5a87273.fontdata"
+uid="uid://dlbkeu4o4icjv"
+path="res://.godot/imported/PixelOperator8.ttf-d2482ba7dcbdcfd4bed4294503670123.fontdata"
 
 [deps]
 
-source_file="res://Title Screen/bitByBit_ [Font] [Version 1.1]/bitbybit_ [Font].ttf"
-dest_files=["res://.godot/imported/bitbybit_ [Font].ttf-07912b4744dc17396f6776ecb5a87273.fontdata"]
+source_file="res://PixelOperator8.ttf"
+dest_files=["res://.godot/imported/PixelOperator8.ttf-d2482ba7dcbdcfd4bed4294503670123.fontdata"]
 
 [params]
 
