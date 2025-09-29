@@ -52,13 +52,19 @@ sprite_frames = SubResource("SpriteFrames_onrkg")
 animation = &"idle"
 autoplay = "idle"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 frame_progress = 0.784496
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
 frame_progress = 0.784496
 =======
 frame_progress = 0.194624
 >>>>>>> parent of 764fa91 (s)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
