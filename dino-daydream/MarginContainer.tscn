@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgbo7nckk7xp8"]
+[gd_scene load_steps=5 format=3 uid="uid://cgbo7nckk7xp8"]
 
 [ext_resource type="Texture2D" uid="uid://byei4higk6t6y" path="res://Ocean_1/4.png" id="1_e5ftv"]
 [ext_resource type="FontFile" uid="uid://duyvgts6fi0ne" path="res://Title Screen/bitByBit_ [Font] [Version 1.1]/bitbybit_ [Font].ttf" id="2_ab0cv"]
 [ext_resource type="Script" uid="uid://jjurd6h5tx85" path="res://button.gd" id="3_dx034"]
-[ext_resource type="Script" uid="uid://bgib4qcodglt1" path="res://button_2.gd" id="4_ab0cv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yb3lb"]
 font = ExtResource("2_ab0cv")
@@ -59,28 +58,16 @@ icon_alignment = 1
 text_direction = 3
 script = ExtResource("3_dx034")
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 784.0
-offset_top = 503.0
-offset_right = 1556.0
-offset_bottom = 658.0
-theme_override_fonts/font = ExtResource("2_ab0cv")
-theme_override_font_sizes/font_size = 59
-text = "Reminders"
-script = ExtResource("4_ab0cv")
-
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 736.0
-offset_right = 2345.0
-offset_bottom = 985.0
+offset_left = 95.0
+offset_top = 528.0
+offset_right = 2340.0
+offset_bottom = 917.0
 theme_override_fonts/font = ExtResource("2_ab0cv")
 theme_override_font_sizes/font_size = 72
 text = "DONT BE A FLIPPETY FLOPPING IDIOT
- you know who you are"
+
+             you know who you are"
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="Button2" to="Button" method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
