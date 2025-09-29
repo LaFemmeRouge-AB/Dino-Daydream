@@ -1852,7 +1852,6 @@ offset_top = -186.0
 offset_right = 4743.0
 offset_bottom = 487.0
 texture = ExtResource("4_sb48q")
-metadata/_edit_lock_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -1861,7 +1860,6 @@ offset_top = -1497.0
 offset_right = 4874.0
 offset_bottom = -157.0
 texture = ExtResource("5_t88pq")
-metadata/_edit_lock_ = true
 
 [node name="Death" type="Area2D" parent="."]
 position = Vector2(7, 536)
@@ -1913,6 +1911,10 @@ position = Vector2(3513, -168)
 position = Vector2(3528, -283)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Node" type="Node" parent="."]
 
 [connection signal="body_shape_entered" from="Death" to="Death" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="spring" to="Player" method="_on_spring_body_shape_entered"]
